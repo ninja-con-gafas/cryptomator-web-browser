@@ -19,4 +19,16 @@ RUN curl -L "https://github.com/cryptomator/cli/releases/download/${VERSION}/cry
 
 RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
 
-ENTRYPOINT ["/bin/sh", "-c", "sleep infinity"]
+RUN useradd -u 1000 -m -s /bin/bash browser && \
+    chown -R browser:browser /opt/cryptomator-cli/bin/cryptomator-cli
+
+RUN mkdir -p /mnt/drive /srv && \
+    chown browser:browser /mnt/drive /srv
+
+USER browser
+
+ENTRYPOINT ["filebrowser", \
+            "--database", "/srv/filebrowser.db", \
+            "-r", "/mnt/drive", \
+            "--address", "0.0.0.0", \
+            "--port", "8080"]

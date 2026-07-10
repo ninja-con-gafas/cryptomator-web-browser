@@ -24,6 +24,8 @@ The Filebrowser web application is exposed on port `8080`, so you can access the
 Create a `.env` file next to the script:
 
 ```env
+CONTAINER_NAME="cryptomator-web-browser"
+CONTAINER_IMAGE="cryptomator-web-browser:0.6.2"
 VAULT_PATH=/path/to/your/vault
 ```
 
@@ -42,4 +44,4 @@ VAULT_PATH=/path/to/your/vault
    ```text
    http://<device.i.p.address>:8080
    ```
-5. The Filebrowser admin password is generated when the container starts and is displayed on the screen logs.
+5. The Filebrowser `admin` password is generated when the container starts and is displayed on the screen.
