@@ -13,6 +13,7 @@ if ! docker ps --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}\$"; then
   --name "$CONTAINER_NAME" \
   --privileged \
   --device /dev/fuse:/dev/fuse \
+  -p 7681:7681 \
   -p 8080:8080 \
   -v "${VAULT_PATH}:/mnt/vault:rw" \
   "$CONTAINER_IMAGE"
