@@ -34,7 +34,7 @@ RUN mkdir -p /mnt/drive /srv && \
 
 USER browser
 
-ENTRYPOINT ["sh", "-c", "exec ttyd -W -p 7681 bash &\
+ENTRYPOINT ["sh", "-c", "exec ttyd -W -p 7681 -c browser:${TTYD_PASSWORD} bash &\
             filebrowser \
               --database /srv/filebrowser.db \
               --root /mnt/drive \
