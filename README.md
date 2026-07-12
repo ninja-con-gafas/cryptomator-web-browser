@@ -1,6 +1,6 @@
 # Cryptomator Web Browser
 
-A lightweight container that unlocks a Cryptomator vault and serves the decrypted files through Filebrowser.
+A lightweight container that unlocks a Cryptomator vault and provides secure browser-based access to the decrypted files through Filebrowser and an interactive terminal through ttyd.
 
 ## What it solves?
 
@@ -10,7 +10,7 @@ Cryptomator on mobile hardware can be painfully slow, especially with huge vault
 
 The container starts Cryptomator CLI, unlocks the vault, mounts the decrypted contents, and launches Filebrowser on the mounted path. 
 
-The Filebrowser web application is exposed on port `8080`, so you can access the files from a browser. The container is ephemeral, so the setup is meant to be started fresh from the script each time.
+The Filebrowser web application and ttyd are exposed on ports `8080` and `7681` respectively, so you can access the files from a browser. The container is ephemeral, so the setup is meant to be started fresh from the script each time.
 
 ## Requirements
 
@@ -44,4 +44,4 @@ VAULT_PATH=/path/to/your/vault
    ```text
    http://<device.i.p.address>:8080
    ```
-5. The Filebrowser `admin` password is generated when the container starts and is displayed on the screen.
+5. The Filebrowser `admin` and ttyd `browser` passwords are generated when the container starts and are displayed on the screen.
